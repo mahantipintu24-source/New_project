@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Buyers - KisanConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🌾 KisanConnect
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Dashboard</a>
+            <a href="market-prices.html">Market Prices</a>
+            <a href="buyers.html">Buyers</a>
+            <a href="#">AI Insights</a>
+            <a href="govt-help.html">🏛️ Govt Help & Support</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Buyers Page -->
+    <main class="buyers-page">
+
+        <h1>👥 Buyers</h1>
+
+        <p class="page-subtitle">
+            Find buyers looking for your crops and connect directly.
+        </p>
+
+
+        <!-- Search -->
+        <section class="buyer-search">
+
+            <input
+                type="text"
+                id="buyerSearch"
+                placeholder="🔍 Search crop or buyer..."
+                onkeyup="searchBuyers()"
+            >
+
+        </section>
+
+
+        <!-- Buyer Cards -->
+        <section class="buyers-container" id="buyersContainer">
+
+
+            <!-- Buyer 1 -->
+            <div class="buyer-card">
+
+                <div class="buyer-icon">🏪</div>
+
+                <div class="buyer-info">
+
+                    <h2>Malda Fresh Foods</h2>
+
+                    <p>
+                        📍 Malda, West Bengal
+                    </p>
+
+                    <p>
+                        🌾 Looking for: Tomato, Potato
+                    </p>
+
+                    <p>
+                        📦 Required Quantity: 500–1000 kg
+                    </p>
+
+                    <strong>
+                        ₹30–₹35 / kg
+                    </strong>
+
+                </div>
+
+                <button
+                    class="contact-buyer-btn"
+                    onclick="contactBuyer('Malda Fresh Foods')">
+
+                    Contact Buyer
+
+                </button>
+
+            </div>
+
+
+            <!-- Buyer 2 -->
+            <div class="buyer-card">
+
+                <div class="buyer-icon">🏬</div>
+
+                <div class="buyer-info">
+
+                    <h2>North Bengal Agro Traders</h2>
+
+                    <p>
+                        📍 Siliguri, West Bengal
+                    </p>
+
+                    <p>
+                        🌾 Looking for: Potato, Maize
+                    </p>
+
+                    <p>
+                        📦 Required Quantity: 1000–3000 kg
+                    </p>
+
+                    <strong>
+                        ₹28–₹34 / kg
+                    </strong>
+
+                </div>
+
+                <button
+                    class="contact-buyer-btn"
+                    onclick="contactBuyer('North Bengal Agro Traders')">
+
+                    Contact Buyer
+
+                </button>
+
+            </div>
+
+
+            <!-- Buyer 3 -->
+            <div class="buyer-card">
+
+                <div class="buyer-icon">🏢</div>
+
+                <div class="buyer-info">
+
+                    <h2>West Bengal Vegetable Hub</h2>
+
+                    <p>
+                        📍 Kolkata, West Bengal
+                    </p>
+
+                    <p>
+                        🌾 Looking for: Tomato, Brinjal, Cabbage
+                    </p>
+
+                    <p>
+                        📦 Required Quantity: 500–2000 kg
+                    </p>
+
+                    <strong>
+                        ₹25–₹38 / kg
+                    </strong>
+
+                </div>
+
+                <button
+                    class="contact-buyer-btn"
+                    onclick="contactBuyer('West Bengal Vegetable Hub')">
+
+                    Contact Buyer
+
+                </button>
+
+            </div>
+
+
+            <!-- Buyer 4 -->
+            <div class="buyer-card">
+
+                <div class="buyer-icon">🚚</div>
+
+                <div class="buyer-info">
+
+                    <h2>Eastern Agro Supply</h2>
+
+                    <p>
+                        📍 Kolkata, West Bengal
+                    </p>
+
+                    <p>
+                        🌾 Looking for: Rice, Jute, Mustard
+                    </p>
+
+                    <p>
+                        📦 Required Quantity: 1000–5000 kg
+                    </p>
+
+                    <strong>
+                        ₹32–₹45 / kg
+                    </strong>
+
+                </div>
+
+                <button
+                    class="contact-buyer-btn"
+                    onclick="contactBuyer('Eastern Agro Supply')">
+
+                    Contact Buyer
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function contactBuyer(buyerName) {
+
+            alert(
+                "Contact request sent to " +
+                buyerName +
+                ". The buyer will contact you soon."
+            );
+
+        }
+
+
+        function searchBuyers() {
+
+            const search =
+                document.getElementById("buyerSearch")
+                .value
+                .toLowerCase();
+
+            const cards =
+                document.querySelectorAll(".buyer-card");
+
+
+            cards.forEach(function(card) {
+
+                const text =
+                    card.textContent.toLowerCase();
+
+                if (text.includes(search)) {
+
+                    card.style.display = "flex";
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+
+</html>
