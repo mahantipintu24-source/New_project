@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Market Prices - KisanConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==================== NAVIGATION BAR ==================== -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🌾 KisanConnect
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Dashboard</a>
+            <a href="market-prices.html">Market Prices</a>
+            <a href="#">Buyers</a>
+            <a href="#">AI Insights</a>
+            <a href="govt-help.html">🏛️ Govt Help & Support</a>
+        </div>
+
+    </nav>
+
+
+    <!-- ==================== MARKET PAGE ==================== -->
+    <main class="market-page">
+
+        <h1>📊 Market Prices</h1>
+
+        <p class="page-subtitle">
+            Check today's crop prices and compare nearby markets.
+        </p>
+
+
+        <!-- ==================== LOCATION SELECTION ==================== -->
+<section class="location-selector">
+
+    <h2>📍 Select Location</h2>
+
+    <div class="location-inputs">
+
+        <!-- STATE -->
+        <div class="location-field">
+
+            <label for="marketState">
+                State
+            </label>
+
+            <select id="marketState">
+
+                <option value="">
+                    Select State
+                </option>
+
+                <option value="west-bengal">
+                    West Bengal
+                </option>
+
+                <option value="bihar">
+                    Bihar
+                </option>
+
+                <option value="jharkhand">
+                    Jharkhand
+                </option>
+
+                <option value="odisha">
+                    Odisha
+                </option>
+
+                <option value="maharashtra">
+                    Maharashtra
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- DISTRICT -->
+        <div class="location-field">
+
+            <label for="marketDistrict">
+                District
+            </label>
+
+            <select id="marketDistrict" disabled>
+
+                <option value="">
+                    Select District
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- CROP -->
+        <div class="location-field">
+
+            <label for="marketCrop">
+                🌾 Crop
+            </label>
+
+            <select id="marketCrop">
+
+                <option value="">
+                    Select Crop
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+        <!-- ==================== TODAY'S OVERVIEW ==================== -->
+        <section class="market-overview">
+
+            <h2>Today's Market Overview</h2>
+
+            <div class="price-cards">
+
+                <div class="price-card">
+
+                    <span>
+                        Average Price
+                    </span>
+
+                    <strong id="averagePrice">
+                        ₹30.00 / kg
+                    </strong>
+
+                    <small>
+                        ↑ 4.35% compared to yesterday
+                    </small>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <span>
+                        Minimum Price
+                    </span>
+
+                    <strong id="minimumPrice">
+                        ₹24.00 / kg
+                    </strong>
+
+                    <small>
+                        Today's lowest price
+                    </small>
+
+                </div>
+
+
+                <div class="price-card">
+
+                    <span>
+                        Maximum Price
+                    </span>
+
+                    <strong id="maximumPrice">
+                        ₹36.00 / kg
+                    </strong>
+
+                    <small>
+                        Today's highest price
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== MARKET TABLE ==================== -->
+        <section class="market-list">
+
+            <h2 id="marketTitle">
+                🏪 Markets Near You
+            </h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Market Name</th>
+                        <th>Crop</th>
+                        <th>Today's Price</th>
+                        <th>Change</th>
+                        <th>Distance</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="marketTableBody">
+
+                    <tr>
+                        <td>Malda Mandi</td>
+                        <td>Tomato</td>
+                        <td>₹30.00/kg</td>
+                        <td class="positive">↑ 4.35%</td>
+                        <td>0 km</td>
+                    </tr>
+
+                    <tr>
+                        <td>English Bazar Mandi</td>
+                        <td>Tomato</td>
+                        <td>₹31.00/kg</td>
+                        <td class="positive">↑ 3.33%</td>
+                        <td>5 km</td>
+                    </tr>
+
+                    <tr>
+                        <td>Gazole Mandi</td>
+                        <td>Tomato</td>
+                        <td>₹29.00/kg</td>
+                        <td class="positive">↑ 1.75%</td>
+                        <td>25 km</td>
+                    </tr>
+
+                    <tr>
+                        <td>Old Malda Mandi</td>
+                        <td>Tomato</td>
+                        <td>₹28.50/kg</td>
+                        <td class="positive">↑ 2.15%</td>
+                        <td>12 km</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- ==================== TRANSPORT & PROFIT CALCULATOR ==================== -->
+        <section class="profit-calculator">
+
+            <h2>
+                🚚 Transport & Profit Calculator
+            </h2>
+
+            <div class="calculator-grid">
+
+                <!-- QUANTITY -->
+                <div>
+
+                    <label for="quantity">
+                        Quantity (kg)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="quantity"
+                        value="1000"
+                        min="1"
+                    >
+
+                </div>
+
+
+                <!-- MARKET -->
+                <div>
+
+                    <label for="marketPrice">
+                        Select Market
+                    </label>
+
+                    <select id="marketPrice">
+
+                        <option value="31">
+                            English Bazar Mandi (₹31/kg)
+                        </option>
+
+                        <option value="30">
+                            Malda Mandi (₹30/kg)
+                        </option>
+
+                        <option value="29">
+                            Gazole Mandi (₹29/kg)
+                        </option>
+
+                        <option value="28.5">
+                            Old Malda Mandi (₹28.50/kg)
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="calculate-btn"
+                id="calculateButton">
+
+                Calculate Profit
+
+            </button>
+
+
+            <div class="profit-result">
+
+                <p>
+                    Expected Selling Price:
+                    <strong id="sellingPrice">
+                        ₹31.00/kg
+                    </strong>
+                </p>
+
+                <p>
+                    Transport Cost:
+                    <strong id="transportCost">
+                        ₹250
+                    </strong>
+                </p>
+
+                <p>
+                    Estimated Profit:
+                    <strong id="estimatedProfit">
+                        ₹750
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script>
+
+        // ==========================================
+        // STATE → DISTRICT DATA
+        // ==========================================
+
+        const districtData = {
+
+            "west-bengal": [
+                "Alipurduar",
+                "Bankura",
+                "Paschim Bardhaman",
+                "Purba Bardhaman",
+                "Birbhum",
+                "Cooch Behar",
+                "Dakshin Dinajpur",
+                "Darjeeling",
+                "Hooghly",
+                "Howrah",
+                "Jalpaiguri",
+                "Jhargram",
+                "Kalimpong",
+                "Kolkata",
+                "Maldah",
+                "Murshidabad",
+                "Nadia",
+                "North 24 Parganas",
+                "South 24 Parganas",
+                "Paschim Medinipur",
+                "Purba Medinipur",
+                "Purulia",
+                "Uttar Dinajpur"
+            ],
+
+            "bihar": [
+                "Araria",
+                "Arwal",
+                "Aurangabad",
+                "Banka",
+                "Begusarai",
+                "Bhagalpur",
+                "Bhojpur",
+                "Buxar",
+                "Darbhanga",
+                "East Champaran",
+                "Gaya",
+                "Gopalganj",
+                "Jamui",
+                "Jehanabad",
+                "Kaimur",
+                "Katihar",
+                "Khagaria",
+                "Kishanganj",
+                "Lakhisarai",
+                "Madhepura",
+                "Madhubani",
+                "Munger",
+                "Muzaffarpur",
+                "Nalanda",
+                "Nawada",
+                "Patna",
+                "Purnia",
+                "Rohtas",
+                "Saharsa",
+                "Samastipur",
+                "Saran",
+                "Sheikhpura",
+                "Sheohar",
+                "Sitamarhi",
+                "Siwan",
+                "Supaul",
+                "Vaishali",
+                "West Champaran"
+            ],
+
+            "jharkhand": [
+                "Bokaro",
+                "Chatra",
+                "Deoghar",
+                "Dhanbad",
+                "Dumka",
+                "East Singhbhum",
+                "Garhwa",
+                "Giridih",
+                "Godda",
+                "Gumla",
+                "Hazaribagh",
+                "Jamtara",
+                "Khunti",
+                "Koderma",
+                "Latehar",
+                "Lohardaga",
+                "Pakur",
+                "Palamu",
+                "Ramgarh",
+                "Ranchi",
+                "Sahebganj",
+                "Seraikela Kharsawan",
+                "Simdega",
+                "West Singhbhum"
+            ],
+
+            "odisha": [
+                "Angul",
+                "Balangir",
+                "Balasore",
+                "Bargarh",
+                "Bhadrak",
+                "Boudh",
+                "Cuttack",
+                "Deogarh",
+                "Dhenkanal",
+                "Gajapati",
+                "Ganjam",
+                "Jagatsinghpur",
+                "Jajpur",
+                "Jharsuguda",
+                "Kalahandi",
+                "Kandhamal",
+                "Kendrapara",
+                "Kendujhar",
+                "Khordha",
+                "Koraput",
+                "Malkangiri",
+                "Mayurbhanj",
+                "Nabarangpur",
+                "Nayagarh",
+                "Nuapada",
+                "Puri",
+                "Rayagada",
+                "Sambalpur",
+                "Subarnapur",
+                "Sundargarh"
+            ],
+
+           "maharashtra": [
+                "Ahmednagar",
+                "Akola",
+                "Amravati",
+                "Aurangabad",
+                "Beed",
+                "Bhandara",
+                "Buldhana",
+                "Chandrapur",
+                "Dhule",
+                "Gadchiroli",
+                "Gondia",
+                "Hingoli",
+                "Jalgaon",
+                "Jalna",
+                "Kolhapur",
+                "Latur",
+                "Mumbai City",
+                "Mumbai Suburban",
+                "Nagpur",
+                "Nanded",
+                "Nandurbar",
+                "Nashik",
+                "Osmanabad",
+                "Palghar",
+                "Parbhani",
+                "Pune",
+                "Raigad",
+                "Ratnagiri",
+                "Sangli",
+                "Satara",
+                "Sindhudurg",
+                "Solapur",
+                "Thane",
+                "Wardha",
+                "Washim",
+                "Yavatmal"
+            ]
+
+        };
+
+
+        // ==========================================
+        // MARKET DATA
+        // ==========================================
+const marketData = {
+
+    // =====================================================
+    // WEST BENGAL
+    // =====================================================
+
+    "Alipurduar": [
+        ["Falakata Krishak Bazar", "Potato", "₹30.00/kg", "↑ 3.20%", "0 km"],
+        ["Madarihat-Birpara Krishak Bazar", "Potato", "₹29.00/kg", "↑ 2.40%", "25 km"],
+        ["Alipurduar-I Krishak Bazar", "Rice", "₹34.00/kg", "↑ 2.10%", "18 km"],
+        ["Kumargram Krishak Bazar", "Rice", "₹33.00/kg", "↑ 1.80%", "42 km"],
+        ["Falakata Krishak Bazar", "Maize", "₹22.00/kg", "↑ 2.50%", "0 km"],
+        ["Kumargram Krishak Bazar", "Jute", "₹52.00/kg", "↑ 2.80%", "42 km"]
+    ],
+
+    "Bankura": [
+        ["Bankura Krishak Bazar", "Rice", "₹34.00/kg", "↑ 2.10%", "0 km"],
+        ["Bishnupur Krishak Bazar", "Rice", "₹33.00/kg", "↑ 1.60%", "38 km"],
+        ["Simlapal Sub Market Yard", "Rice", "₹35.00/kg", "↑ 2.40%", "52 km"],
+
+        ["Bankura Krishak Bazar", "Potato", "₹29.00/kg", "↑ 3.20%", "0 km"],
+        ["Bishnupur Krishak Bazar", "Potato", "₹30.00/kg", "↑ 2.50%", "38 km"],
+        ["Simlapal Sub Market Yard", "Potato", "₹28.00/kg", "↑ 1.80%", "52 km"],
+
+        ["Bankura Krishak Bazar", "Mustard", "₹58.00/kg", "↑ 3.40%", "0 km"],
+        ["Bishnupur Krishak Bazar", "Mustard", "₹57.00/kg", "↑ 2.20%", "38 km"],
+        ["Simlapal Sub Market Yard", "Mustard", "₹59.00/kg", "↑ 2.90%", "52 km"],
+
+        ["Bankura Krishak Bazar", "Maize", "₹23.00/kg", "↑ 2.60%", "0 km"],
+        ["Bishnupur Krishak Bazar", "Maize", "₹22.00/kg", "↑ 2.10%", "38 km"]
+    ],
+
+    "Paschim Bardhaman": [
+        ["Durgapur Krishak Bazar", "Rice", "₹35.00/kg", "↑ 2.10%", "0 km"],
+        ["Asansol Market Yard", "Rice", "₹34.00/kg", "↑ 1.80%", "32 km"],
+        ["Durgapur Krishak Bazar", "Potato", "₹30.00/kg", "↑ 2.80%", "0 km"],
+        ["Asansol Market Yard", "Potato", "₹29.00/kg", "↑ 2.20%", "32 km"],
+        ["Durgapur Krishak Bazar", "Maize", "₹23.00/kg", "↑ 2.50%", "0 km"],
+        ["Asansol Market Yard", "Mustard", "₹57.00/kg", "↑ 2.70%", "32 km"]
+    ],
+
+    "Purba Bardhaman": [
+        ["Burdwan Market Yard", "Rice", "₹36.00/kg", "↑ 2.60%", "0 km"],
+        ["Kalna Market Yard", "Rice", "₹35.00/kg", "↑ 2.10%", "45 km"],
+        ["Katwa Market Yard", "Rice", "₹34.00/kg", "↑ 1.90%", "55 km"],
+        ["Burdwan Market Yard", "Potato", "₹30.00/kg", "↑ 3.20%", "0 km"],
+        ["Kalna Market Yard", "Potato", "₹29.00/kg", "↑ 2.40%", "45 km"],
+        ["Katwa Market Yard", "Onion", "₹32.00/kg", "↑ 2.70%", "55 km"],
+        ["Burdwan Market Yard", "Jute", "₹51.00/kg", "↑ 2.30%", "0 km"]
+    ],
+
+    "Birbhum": [
+        ["Suri Krishak Bazar", "Rice", "₹35.00/kg", "↑ 2.20%", "0 km"],
+        ["Bolpur Market Yard", "Rice", "₹34.00/kg", "↑ 1.90%", "42 km"],
+        ["Rampurhat Market Yard", "Rice", "₹35.00/kg", "↑ 2.40%", "50 km"],
+        ["Suri Krishak Bazar", "Potato", "₹29.00/kg", "↑ 2.80%", "0 km"],
+        ["Bolpur Market Yard", "Mustard", "₹59.00/kg", "↑ 3.10%", "42 km"],
+        ["Rampurhat Market Yard", "Maize", "₹23.00/kg", "↑ 2.50%", "50 km"]
+    ],
+
+    "Cooch Behar": [
+        ["Cooch Behar Market Yard", "Rice", "₹34.00/kg", "↑ 2.10%", "0 km"],
+        ["Dinhata Krishak Bazar", "Rice", "₹33.00/kg", "↑ 1.80%", "28 km"],
+        ["Cooch Behar Market Yard", "Potato", "₹30.00/kg", "↑ 3.30%", "0 km"],
+        ["Dinhata Krishak Bazar", "Potato", "₹29.00/kg", "↑ 2.40%", "28 km"],
+        ["Cooch Behar Market Yard", "Jute", "₹53.00/kg", "↑ 2.70%", "0 km"],
+        ["Dinhata Krishak Bazar", "Pineapple", "₹28.00/kg", "↑ 2.20%", "28 km"]
+    ],
+
+    "Dakshin Dinajpur": [
+        ["Balurghat Market Yard", "Rice", "₹34.00/kg", "↑ 2.10%", "0 km"],
+        ["Gangarampur Market", "Rice", "₹33.00/kg", "↑ 1.70%", "30 km"],
+        ["Balurghat Market Yard", "Potato", "₹29.00/kg", "↑ 2.90%", "0 km"],
+        ["Gangarampur Market", "Potato", "₹28.00/kg", "↑ 2.40%", "30 km"],
+        ["Balurghat Market Yard", "Jute", "₹51.00/kg", "↑ 2.60%", "0 km"],
+        ["Gangarampur Market", "Maize", "₹23.00/kg", "↑ 2.30%", "30 km"]
+    ],
+
+    "Darjeeling": [
+        ["Siliguri Regulated Market", "Potato", "₹32.00/kg", "↑ 3.50%", "0 km"],
+        ["Salbari Krishak Bazar", "Potato", "₹31.00/kg", "↑ 2.80%", "18 km"],
+        ["Siliguri Regulated Market", "Tomato", "₹34.00/kg", "↑ 4.10%", "0 km"],
+        ["Salbari Krishak Bazar", "Tomato", "₹33.00/kg", "↑ 3.20%", "18 km"],
+        ["Phansidewa Krishak Bazar", "Ginger", "₹85.00/kg", "↑ 2.60%", "35 km"],
+        ["Siliguri Regulated Market", "Orange", "₹62.00/kg", "↑ 2.90%", "0 km"]
+    ],
+
+    "Hooghly": [
+        ["Chinsurah Market Yard", "Rice", "₹35.00/kg", "↑ 2.10%", "0 km"],
+        ["Arambagh Market Yard", "Rice", "₹34.00/kg", "↑ 1.90%", "52 km"],
+        ["Chinsurah Market Yard", "Potato", "₹30.00/kg", "↑ 3.10%", "0 km"],
+        ["Arambagh Market Yard", "Potato", "₹29.00/kg", "↑ 2.40%", "52 km"],
+        ["Chinsurah Market Yard", "Vegetables", "₹28.00/kg", "↑ 2.80%", "0 km"],
+        ["Arambagh Market Yard", "Jute", "₹52.00/kg", "↑ 2.30%", "52 km"]
+    ],
+
+    "Howrah": [
+        ["Howrah Krishak Bazar", "Rice", "₹35.00/kg", "↑ 2.10%", "0 km"],
+        ["Uluberia Market Yard", "Rice", "₹34.00/kg", "↑ 1.80%", "42 km"],
+        ["Howrah Krishak Bazar", "Potato", "₹31.00/kg", "↑ 2.90%", "0 km"],
+        ["Sankrail Market", "Vegetables", "₹29.00/kg", "↑ 3.20%", "24 km"],
+        ["Uluberia Market Yard", "Jute", "₹53.00/kg", "↑ 2.70%", "42 km"]
+    ],
+
+    "Jalpaiguri": [
+        ["Jalpaiguri Market Yard", "Rice", "₹34.00/kg", "↑ 2.00%", "0 km"],
+        ["Dhupguri Krishak Bazar", "Rice", "₹33.00/kg", "↑ 1.70%", "38 km"],
+        ["Jalpaiguri Market Yard", "Potato", "₹30.00/kg", "↑ 3.10%", "0 km"],
+        ["Dhupguri Krishak Bazar", "Potato", "₹29.00/kg", "↑ 2.50%", "38 km"],
+        ["Jalpaiguri Market Yard", "Jute", "₹52.00/kg", "↑ 2.80%", "0 km"],
+        ["Dhupguri Krishak Bazar", "Pineapple", "₹27.00/kg", "↑ 2.60%", "38 km"]
+    ],
+
+    "Jhargram": [
+        ["Jhargram Krishak Bazar", "Rice", "₹34.00/kg", "↑ 2.20%", "0 km"],
+        ["Gopiballavpur Market", "Rice", "₹33.00/kg", "↑ 1.80%", "45 km"],
+        ["Jhargram Krishak Bazar", "Potato", "₹29.00/kg", "↑ 2.70%", "0 km"],
+        ["Gopiballavpur Market", "Vegetables", "₹27.00/kg", "↑ 2.40%", "45 km"],
+        ["Jhargram Krishak Bazar", "Mustard", "₹58.00/kg", "↑ 2.90%", "0 km"],
+        ["Gopiballavpur Market", "Maize", "₹23.00/kg", "↑ 2.30%", "45 km"]
+    ],
+
+    "Kalimpong": [
+        ["Kalimpong Market", "Ginger", "₹88.00/kg", "↑ 3.20%", "0 km"],
+        ["Pedong Market", "Ginger", "₹85.00/kg", "↑ 2.60%", "28 km"],
+        ["Kalimpong Krishak Bazar", "Orange", "₹65.00/kg", "↑ 2.80%", "8 km"],
+        ["Pedong Market", "Vegetables", "₹35.00/kg", "↑ 2.10%", "28 km"],
+        ["Kalimpong Market", "Cardamom", "₹1150.00/kg", "↑ 3.50%", "0 km"]
+    ],
+
+    "Kolkata": [
+        ["Koley Market", "Potato", "₹32.00/kg", "↑ 2.90%", "0 km"],
+        ["Koley Market", "Tomato", "₹35.00/kg", "↑ 4.10%", "0 km"],
+        ["Sealdah Koley Market", "Onion", "₹34.00/kg", "↑ 3.20%", "5 km"],
+        ["Mechua Market", "Vegetables", "₹30.00/kg", "↑ 2.50%", "7 km"],
+        ["Koley Market", "Rice", "₹38.00/kg", "↑ 2.00%", "0 km"]
+    ],
+
+    "Maldah": [
+        ["Malda Principal Market Yard", "Rice", "₹34.00/kg", "↑ 2.10%", "0 km"],
+        ["Samsi Sub Market Yard", "Rice", "₹33.00/kg", "↑ 1.80%", "35 km"],
+        ["Malda Principal Market Yard", "Potato", "₹30.00/kg", "↑ 3.10%", "0 km"],
+        ["Samsi Sub Market Yard", "Potato", "₹29.00/kg", "↑ 2.40%", "35 km"],
+        ["English Bazar Market", "Tomato", "₹31.00/kg", "↑ 3.80%", "5 km"],
+        ["Gazole Market", "Tomato", "₹30.00/kg", "↑ 2.90%", "28 km"],
+        ["Malda Market Yard", "Mango", "₹55.00/kg", "↑ 4.20%", "0 km"],
+        ["Samsi Sub Market Yard", "Jute", "₹52.00/kg", "↑ 2.60%", "35 km"]
+    ],
+
+    "Murshidabad": [
+        ["Jiyaganj Krishak Bazar", "Rice", "₹35.00/kg", "↑ 2.10%", "0 km"],
+        ["Berhampore Krishak Bazar", "Rice", "₹34.00/kg", "↑ 1.80%", "20 km"],
+        ["Jiyaganj Krishak Bazar", "Potato", "₹30.00/kg", "↑ 3.10%", "0 km"],
+        ["Kandi Market", "Potato", "₹29.00/kg", "↑ 2.50%", "42 km"],
+        ["Samsherganj Krishak Bazar", "Tomato", "₹31.00/kg", "↑ 3.70%", "0 km"],
+        ["Berhampore Krishak Bazar", "Onion", "₹33.00/kg", "↑ 2.90%", "20 km"],
+        ["Jiyaganj Krishak Bazar", "Jute", "₹53.00/kg", "↑ 2.50%", "0 km"],
+        ["Berhampore Krishak Bazar", "Mango", "₹58.00/kg", "↑ 3.40%", "20 km"]
+    ],
+
+    "Nadia": [
+        ["Bethuadahari Principal Market Yard", "Rice", "₹35.00/kg", "↑ 2.10%", "0 km"],
+        ["Krishnanagar Krishak Bazar", "Rice", "₹34.00/kg", "↑ 1.80%", "15 km"],
+        ["Bethuadahari Principal Market Yard", "Potato", "₹30.00/kg", "↑ 3.20%", "0 km"],
+        ["Karimpur Sub Market Yard", "Potato", "₹29.00/kg", "↑ 2.30%", "38 km"],
+        ["Nakashipara Krishak Bazar", "Tomato", "₹31.00/kg", "↑ 3.60%", "25 km"],
+        ["Krishnanagar Krishak Bazar", "Tomato", "₹32.00/kg", "↑ 4.00%", "15 km"],
+        ["Krishnanagar Market", "Mango", "₹57.00/kg", "↑ 3.10%", "15 km"],
+        ["Bethuadahari Principal Market Yard", "Jute", "₹52.00/kg", "↑ 2.40%", "0 km"]
+    ],
+
+    "North 24 Parganas": [
+        ["Barasat Krishak Bazar", "Rice", "₹36.00/kg", "↑ 2.10%", "0 km"],
+        ["Basirhat Market Yard", "Rice", "₹35.00/kg", "↑ 1.80%", "45 km"],
+        ["Barasat Krishak Bazar", "Potato", "₹32.00/kg", "↑ 3.10%", "0 km"],
+        ["Basirhat Market Yard", "Potato", "₹31.00/kg", "↑ 2.50%", "45 km"],
+        ["Barasat Krishak Bazar", "Vegetables", "₹30.00/kg", "↑ 2.90%", "0 km"],
+        ["Basirhat Market Yard", "Jute", "₹53.00/kg", "↑ 2.60%", "45 km"],
+        ["Barasat Krishak Bazar", "Mango", "₹58.00/kg", "↑ 3.20%", "0 km"]
+    ],
+
+    "South 24 Parganas": [
+        ["Baruipur Krishak Bazar", "Rice", "₹35.00/kg", "↑ 2.10%", "0 km"],
+        ["Canning Market Yard", "Rice", "₹34.00/kg", "↑ 1.80%", "40 km"],
+        ["Baruipur Krishak Bazar", "Potato", "₹32.00/kg", "↑ 2.80%", "0 km"],
+        ["Canning Market Yard", "Vegetables", "₹29.00/kg", "↑ 2.50%", "40 km"],
+        ["Baruipur Krishak Bazar", "Mustard", "₹57.00/kg", "↑ 2.90%", "0 km"],
+        ["Canning Market Yard", "Jute", "₹52.00/kg", "↑ 2.40%", "40 km"],
+        ["Baruipur Krishak Bazar", "Betel Leaf", "₹120.00/kg", "↑ 3.40%", "0 km"]
+    ],
+
+    "Paschim Medinipur": [
+        ["Midnapore Krishak Bazar", "Rice", "₹34.00/kg", "↑ 2.20%", "0 km"],
+        ["Kharagpur Market Yard", "Rice", "₹35.00/kg", "↑ 2.50%", "30 km"],
+        ["Midnapore Krishak Bazar", "Potato", "₹29.00/kg", "↑ 3.10%", "0 km"],
+        ["Kharagpur Market Yard", "Potato", "₹30.00/kg", "↑ 2.70%", "30 km"],
+        ["Midnapore Krishak Bazar", "Mustard", "₹58.00/kg", "↑ 2.90%", "0 km"],
+        ["Kharagpur Market Yard", "Jute", "₹52.00/kg", "↑ 2.40%", "30 km"],
+        ["Midnapore Krishak Bazar", "Maize", "₹23.00/kg", "↑ 2.60%", "0 km"]
+    ],
+
+    "Purba Medinipur": [
+        ["Tamluk Krishak Bazar", "Rice", "₹35.00/kg", "↑ 2.10%", "0 km"],
+        ["Panskura Market Yard", "Rice", "₹34.00/kg", "↑ 1.80%", "28 km"],
+        ["Tamluk Krishak Bazar", "Potato", "₹30.00/kg", "↑ 3.20%", "0 km"],
+        ["Panskura Market Yard", "Potato", "₹31.00/kg", "↑ 3.50%", "28 km"],
+        ["Tamluk Krishak Bazar", "Groundnut", "₹58.00/kg", "↑ 2.70%", "0 km"],
+        ["Panskura Market Yard", "Vegetables", "₹29.00/kg", "↑ 2.70%", "28 km"],
+        ["Tamluk Krishak Bazar", "Rice", "₹35.00/kg", "↑ 2.10%", "0 km"]
+    ],
+
+    "Purulia": [
+        ["Purulia Krishak Bazar", "Rice", "₹33.00/kg", "↑ 1.80%", "0 km"],
+        ["Raghunathpur Market", "Rice", "₹32.00/kg", "↑ 1.50%", "45 km"],
+        ["Purulia Krishak Bazar", "Potato", "₹28.00/kg", "↑ 2.90%", "0 km"],
+        ["Raghunathpur Market", "Potato", "₹29.00/kg", "↑ 2.40%", "45 km"],
+        ["Purulia Krishak Bazar", "Maize", "₹23.00/kg", "↑ 2.20%", "0 km"],
+        ["Raghunathpur Market", "Mustard", "₹57.00/kg", "↑ 2.80%", "45 km"],
+        ["Purulia Krishak Bazar", "Groundnut", "₹62.00/kg", "↑ 3.10%", "0 km"]
+    ],
+
+    "Uttar Dinajpur": [
+        ["Raiganj Market Yard", "Rice", "₹34.00/kg", "↑ 2.10%", "0 km"],
+        ["Islampur Krishak Bazar", "Rice", "₹33.00/kg", "↑ 1.70%", "35 km"],
+        ["Raiganj Market Yard", "Potato", "₹29.00/kg", "↑ 2.80%", "0 km"],
+        ["Islampur Krishak Bazar", "Potato", "₹28.00/kg", "↑ 2.30%", "35 km"],
+        ["Raiganj Market Yard", "Maize", "₹23.00/kg", "↑ 2.30%", "0 km"],
+        ["Islampur Krishak Bazar", "Jute", "₹52.00/kg", "↑ 2.50%", "35 km"],
+        ["Raiganj Market Yard", "Pineapple", "₹27.00/kg", "↑ 2.40%", "0 km"]
+    ],
+
+    // =====================================================
+// MAHARASHTRA
+// =====================================================
+
+"Ahmednagar": [
+
+    // RICE
+    ["Ahmednagar Market Yard", "Rice", "₹35.00/kg", "↑ 2.10%", "0 km"],
+    ["Rahata Market", "Rice", "₹34.00/kg", "↑ 1.80%", "35 km"],
+
+    // ONION
+    ["Ahmednagar Market Yard", "Onion", "₹28.00/kg", "↑ 3.20%", "0 km"],
+    ["Rahata Market", "Onion", "₹29.00/kg", "↑ 2.80%", "35 km"],
+    ["Kopargaon Market", "Onion", "₹27.00/kg", "↑ 2.40%", "48 km"],
+
+    // WHEAT
+    ["Kopargaon Market", "Wheat", "₹32.00/kg", "↑ 2.10%", "48 km"],
+    ["Ahmednagar Market Yard", "Wheat", "₹33.00/kg", "↑ 2.30%", "0 km"]
+
+],
+
+
+"Akola": [
+
+    // SOYBEAN
+    ["Akola Market Yard", "Soybean", "₹48.00/kg", "↑ 3.40%", "0 km"],
+    ["Balapur Market", "Soybean", "₹47.00/kg", "↑ 2.40%", "52 km"],
+    ["Murtizapur Market", "Soybean", "₹49.00/kg", "↑ 2.90%", "38 km"],
+
+    // COTTON
+    ["Murtizapur Market", "Cotton", "₹72.00/kg", "↑ 2.70%", "38 km"],
+    ["Akola Market Yard", "Cotton", "₹71.00/kg", "↑ 2.40%", "0 km"],
+
+    // WHEAT
+    ["Akola Market Yard", "Wheat", "₹32.00/kg", "↑ 2.10%", "0 km"],
+    ["Balapur Market", "Wheat", "₹31.00/kg", "↑ 1.80%", "52 km"]
+
+],
+
+
+"Amravati": [
+
+    // SOYBEAN
+    ["Amravati Market Yard", "Soybean", "₹49.00/kg", "↑ 3.60%", "0 km"],
+    ["Daryapur Market", "Soybean", "₹48.00/kg", "↑ 2.70%", "45 km"],
+
+    // COTTON
+    ["Achalpur Market", "Cotton", "₹73.00/kg", "↑ 2.90%", "55 km"],
+    ["Amravati Market Yard", "Cotton", "₹72.00/kg", "↑ 2.60%", "0 km"],
+
+    // ORANGE
+    ["Amravati Market Yard", "Orange", "₹42.00/kg", "↑ 3.10%", "0 km"],
+    ["Achalpur Market", "Orange", "₹40.00/kg", "↑ 2.60%", "55 km"]
+
+],
+
+
+"Aurangabad": [
+
+    // ONION
+    ["Aurangabad Market Yard", "Onion", "₹30.00/kg", "↑ 3.10%", "0 km"],
+    ["Vaijapur Market", "Onion", "₹29.00/kg", "↑ 2.60%", "65 km"],
+
+    // WHEAT
+    ["Vaijapur Market", "Wheat", "₹31.00/kg", "↑ 2.20%", "65 km"],
+    ["Aurangabad Market Yard", "Wheat", "₹32.00/kg", "↑ 2.40%", "0 km"],
+
+    // MAIZE
+    ["Kannad Market", "Maize", "₹24.00/kg", "↑ 2.60%", "55 km"],
+    ["Aurangabad Market Yard", "Maize", "₹25.00/kg", "↑ 2.30%", "0 km"]
+
+],
+
+
+"Beed": [
+
+    // SOYBEAN
+    ["Beed Market Yard", "Soybean", "₹47.00/kg", "↑ 3.10%", "0 km"],
+    ["Majalgaon Market", "Soybean", "₹46.00/kg", "↑ 2.60%", "42 km"],
+
+    // COTTON
+    ["Georai Market", "Cotton", "₹70.00/kg", "↑ 2.50%", "45 km"],
+    ["Beed Market Yard", "Cotton", "₹71.00/kg", "↑ 2.80%", "0 km"],
+
+    // TUR
+    ["Majalgaon Market", "Tur", "₹74.00/kg", "↑ 2.90%", "42 km"],
+    ["Beed Market Yard", "Tur", "₹73.00/kg", "↑ 2.40%", "0 km"]
+
+],
+
+
+"Bhandara": [
+
+    // RICE
+    ["Bhandara Market Yard", "Rice", "₹35.00/kg", "↑ 2.20%", "0 km"],
+    ["Tumsar Market", "Rice", "₹34.00/kg", "↑ 1.80%", "35 km"],
+    ["Sakoli Market", "Rice", "₹36.00/kg", "↑ 2.40%", "42 km"],
+
+    // SOYBEAN
+    ["Sakoli Market", "Soybean", "₹47.00/kg", "↑ 2.70%", "42 km"],
+    ["Bhandara Market Yard", "Soybean", "₹46.00/kg", "↑ 2.30%", "0 km"],
+
+    // WHEAT
+    ["Tumsar Market", "Wheat", "₹32.00/kg", "↑ 2.10%", "35 km"],
+    ["Bhandara Market Yard", "Wheat", "₹31.00/kg", "↑ 1.70%", "0 km"]
+
+],
+
+
+"Buldhana": [
+
+    // SOYBEAN
+    ["Buldhana Market Yard", "Soybean", "₹48.00/kg", "↑ 3.20%", "0 km"],
+    ["Malkapur Market", "Soybean", "₹47.00/kg", "↑ 2.40%", "48 km"],
+    ["Khamgaon Market", "Soybean", "₹49.00/kg", "↑ 2.90%", "35 km"],
+
+    // COTTON
+    ["Khamgaon Market", "Cotton", "₹71.00/kg", "↑ 2.80%", "35 km"],
+    ["Malkapur Market", "Cotton", "₹70.00/kg", "↑ 2.50%", "48 km"],
+
+    // WHEAT
+    ["Buldhana Market Yard", "Wheat", "₹32.00/kg", "↑ 2.00%", "0 km"],
+    ["Khamgaon Market", "Wheat", "₹31.00/kg", "↑ 1.80%", "35 km"]
+
+],
+
+
+"Chandrapur": [
+
+    // RICE
+    ["Chandrapur Market Yard", "Rice", "₹34.00/kg", "↑ 2.10%", "0 km"],
+    ["Warora Market", "Rice", "₹33.00/kg", "↑ 1.70%", "42 km"],
+
+    // COTTON
+    ["Warora Market", "Cotton", "₹70.00/kg", "↑ 2.60%", "42 km"],
+    ["Rajura Market", "Cotton", "₹69.00/kg", "↑ 2.30%", "55 km"],
+
+    // SOYBEAN
+    ["Rajura Market", "Soybean", "₹46.00/kg", "↑ 2.30%", "55 km"],
+    ["Chandrapur Market Yard", "Soybean", "₹47.00/kg", "↑ 2.60%", "0 km"]
+
+],
+
+
+"Dhule": [
+
+    // ONION
+    ["Dhule Market Yard", "Onion", "₹29.00/kg", "↑ 3.10%", "0 km"],
+    ["Sakri Market", "Onion", "₹28.00/kg", "↑ 2.50%", "38 km"],
+
+    // COTTON
+    ["Shirpur Market", "Cotton", "₹69.00/kg", "↑ 2.50%", "48 km"],
+    ["Dhule Market Yard", "Cotton", "₹70.00/kg", "↑ 2.80%", "0 km"],
+
+    // WHEAT
+    ["Sakri Market", "Wheat", "₹31.00/kg", "↑ 1.90%", "38 km"],
+    ["Dhule Market Yard", "Wheat", "₹32.00/kg", "↑ 2.20%", "0 km"]
+
+],
+
+
+"Gadchiroli": [
+
+    // RICE
+    ["Gadchiroli Market Yard", "Rice", "₹34.00/kg", "↑ 2.00%", "0 km"],
+    ["Armori Market", "Rice", "₹33.00/kg", "↑ 1.60%", "40 km"],
+
+    // SOYBEAN
+    ["Aheri Market", "Soybean", "₹46.00/kg", "↑ 2.30%", "80 km"],
+    ["Gadchiroli Market Yard", "Soybean", "₹47.00/kg", "↑ 2.60%", "0 km"],
+
+    // MAIZE
+    ["Armori Market", "Maize", "₹23.00/kg", "↑ 2.20%", "40 km"],
+    ["Aheri Market", "Maize", "₹22.00/kg", "↑ 1.90%", "80 km"]
+
+],
+
+
+"Gondia": [
+
+    // RICE
+    ["Gondia Market Yard", "Rice", "₹35.00/kg", "↑ 2.30%", "0 km"],
+    ["Tirora Market", "Rice", "₹34.00/kg", "↑ 1.90%", "35 km"],
+    ["Goregaon Market", "Rice", "₹36.00/kg", "↑ 2.50%", "42 km"],
+
+    // SOYBEAN
+    ["Goregaon Market", "Soybean", "₹47.00/kg", "↑ 2.50%", "42 km"],
+    ["Gondia Market Yard", "Soybean", "₹46.00/kg", "↑ 2.20%", "0 km"],
+
+    // WHEAT
+    ["Tirora Market", "Wheat", "₹32.00/kg", "↑ 2.10%", "35 km"],
+    ["Gondia Market Yard", "Wheat", "₹31.00/kg", "↑ 1.80%", "0 km"]
+
+],
+
+
+"Hingoli": [
+
+    // SOYBEAN
+    ["Hingoli Market Yard", "Soybean", "₹48.00/kg", "↑ 3.20%", "0 km"],
+    ["Kalamnuri Market", "Soybean", "₹47.00/kg", "↑ 2.60%", "35 km"],
+
+    // TUR
+    ["Basmat Market", "Tur", "₹75.00/kg", "↑ 2.80%", "42 km"],
+    ["Hingoli Market Yard", "Tur", "₹74.00/kg", "↑ 2.50%", "0 km"],
+
+    // COTTON
+    ["Kalamnuri Market", "Cotton", "₹71.00/kg", "↑ 2.40%", "35 km"],
+    ["Basmat Market", "Cotton", "₹70.00/kg", "↑ 2.10%", "42 km"]
+
+],
+
+
+"Jalgaon": [
+
+    // BANANA
+    ["Jalgaon Market Yard", "Banana", "₹25.00/kg", "↑ 3.20%", "0 km"],
+    ["Bhusawal Market", "Banana", "₹24.00/kg", "↑ 2.70%", "28 km"],
+    ["Chopda Market", "Banana", "₹26.00/kg", "↑ 3.50%", "55 km"],
+
+    // COTTON
+    ["Chopda Market", "Cotton", "₹70.00/kg", "↑ 2.80%", "55 km"],
+    ["Jalgaon Market Yard", "Cotton", "₹71.00/kg", "↑ 3.00%", "0 km"],
+
+    // ONION
+    ["Jalgaon Market Yard", "Onion", "₹28.00/kg", "↑ 2.60%", "0 km"],
+    ["Bhusawal Market", "Onion", "₹27.00/kg", "↑ 2.20%", "28 km"]
+
+],
+
+
+"Jalna": [
+
+    // SOYBEAN
+    ["Jalna Market Yard", "Soybean", "₹48.00/kg", "↑ 3.20%", "0 km"],
+    ["Bhokardan Market", "Soybean", "₹47.00/kg", "↑ 2.60%", "48 km"],
+
+    // COTTON
+    ["Bhokardan Market", "Cotton", "₹71.00/kg", "↑ 2.60%", "48 km"],
+    ["Jalna Market Yard", "Cotton", "₹70.00/kg", "↑ 2.30%", "0 km"],
+
+    // TUR
+    ["Ambad Market", "Tur", "₹74.00/kg", "↑ 2.90%", "42 km"],
+    ["Jalna Market Yard", "Tur", "₹73.00/kg", "↑ 2.50%", "0 km"]
+
+],
+
+
+"Kolhapur": [
+
+    // SUGARCANE
+    ["Kolhapur Market Yard", "Sugarcane", "₹3.50/kg", "↑ 2.10%", "0 km"],
+    ["Ichalkaranji Market", "Sugarcane", "₹3.40/kg", "↑ 1.80%", "28 km"],
+
+    // JAGGERY
+    ["Ichalkaranji Market", "Jaggery", "₹45.00/kg", "↑ 3.20%", "28 km"],
+    ["Kolhapur Market Yard", "Jaggery", "₹44.00/kg", "↑ 2.70%", "0 km"],
+
+    // SOYBEAN
+    ["Gadhinglaj Market", "Soybean", "₹47.00/kg", "↑ 2.40%", "65 km"],
+    ["Kolhapur Market Yard", "Soybean", "₹46.00/kg", "↑ 2.10%", "0 km"]
+
+],
+
+
+"Latur": [
+
+    // SOYBEAN
+    ["Latur Market Yard", "Soybean", "₹48.00/kg", "↑ 3.40%", "0 km"],
+    ["Udgir Market", "Soybean", "₹47.00/kg", "↑ 2.70%", "60 km"],
+
+    // TUR
+    ["Nilanga Market", "Tur", "₹75.00/kg", "↑ 3.10%", "55 km"],
+    ["Latur Market Yard", "Tur", "₹74.00/kg", "↑ 2.70%", "0 km"],
+
+    // WHEAT
+    ["Udgir Market", "Wheat", "₹32.00/kg", "↑ 2.10%", "60 km"],
+    ["Latur Market Yard", "Wheat", "₹31.00/kg", "↑ 1.80%", "0 km"]
+
+],
+
+
+"Nagpur": [
+
+    // ORANGE
+    ["Nagpur Market Yard", "Orange", "₹40.00/kg", "↑ 3.50%", "0 km"],
+    ["Kamptee Market", "Orange", "₹39.00/kg", "↑ 2.90%", "30 km"],
+    ["Hingna Market", "Orange", "₹41.00/kg", "↑ 3.20%", "25 km"],
+
+    // SOYBEAN
+    ["Kamptee Market", "Soybean", "₹48.00/kg", "↑ 2.70%", "30 km"],
+    ["Nagpur Market Yard", "Soybean", "₹47.00/kg", "↑ 2.30%", "0 km"],
+
+    // WHEAT
+    ["Hingna Market", "Wheat", "₹32.00/kg", "↑ 2.10%", "25 km"],
+    ["Nagpur Market Yard", "Wheat", "₹31.00/kg", "↑ 1.80%", "0 km"]
+
+],
+
+
+"Nanded": [
+
+    // SOYBEAN
+    ["Nanded Market Yard", "Soybean", "₹48.00/kg", "↑ 3.20%", "0 km"],
+    ["Deglur Market", "Soybean", "₹47.00/kg", "↑ 2.60%", "70 km"],
+
+    // TUR
+    ["Deglur Market", "Tur", "₹74.00/kg", "↑ 2.80%", "70 km"],
+    ["Nanded Market Yard", "Tur", "₹73.00/kg", "↑ 2.40%", "0 km"],
+
+    // COTTON
+    ["Hadgaon Market", "Cotton", "₹72.00/kg", "↑ 2.60%", "65 km"],
+    ["Nanded Market Yard", "Cotton", "₹71.00/kg", "↑ 2.30%", "0 km"]
+
+],
+
+
+"Nashik": [
+
+    // ONION
+    ["Lasalgaon Market Yard", "Onion", "₹27.00/kg", "↑ 3.40%", "0 km"],
+    ["Pimpalgaon Baswant Market", "Onion", "₹28.00/kg", "↑ 3.80%", "22 km"],
+    ["Nashik Market Yard", "Onion", "₹29.00/kg", "↑ 3.10%", "18 km"],
+
+    // GRAPES
+    ["Nashik Market Yard", "Grapes", "₹65.00/kg", "↑ 4.10%", "18 km"],
+    ["Pimpalgaon Baswant Market", "Grapes", "₹63.00/kg", "↑ 3.60%", "22 km"],
+
+    // WHEAT
+    ["Nashik Market Yard", "Wheat", "₹33.00/kg", "↑ 2.20%", "18 km"],
+    ["Lasalgaon Market Yard", "Wheat", "₹32.00/kg", "↑ 1.90%", "0 km"]
+
+],
+
+
+"Pune": [
+
+    // TOMATO
+    ["Pune Market Yard", "Tomato", "₹32.00/kg", "↑ 3.50%", "0 km"],
+    ["Pimpri Market", "Tomato", "₹31.00/kg", "↑ 2.90%", "18 km"],
+    ["Baramati Market Yard", "Tomato", "₹33.00/kg", "↑ 3.80%", "65 km"],
+
+    // ONION
+    ["Pimpri Market", "Onion", "₹30.00/kg", "↑ 2.80%", "18 km"],
+    ["Pune Market Yard", "Onion", "₹31.00/kg", "↑ 3.10%", "0 km"],
+
+    // SUGARCANE
+    ["Baramati Market Yard", "Sugarcane", "₹3.40/kg", "↑ 2.20%", "65 km"],
+    ["Pune Market Yard", "Sugarcane", "₹3.50/kg", "↑ 2.40%", "0 km"]
+
+],
+
+
+"Raigad": [
+
+    // RICE
+    ["Panvel Market Yard", "Rice", "₹36.00/kg", "↑ 2.10%", "0 km"],
+    ["Karjat Market", "Rice", "₹35.00/kg", "↑ 1.90%", "55 km"],
+
+    // VEGETABLES
+    ["Alibag Market", "Vegetables", "₹32.00/kg", "↑ 2.80%", "48 km"],
+    ["Panvel Market Yard", "Vegetables", "₹34.00/kg", "↑ 3.10%", "0 km"],
+
+    // ONION
+    ["Panvel Market Yard", "Onion", "₹34.00/kg", "↑ 2.70%", "0 km"],
+    ["Alibag Market", "Onion", "₹33.00/kg", "↑ 2.30%", "48 km"]
+
+],
+
+
+"Sangli": [
+
+    // TURMERIC
+    ["Sangli Market Yard", "Turmeric", "₹120.00/kg", "↑ 3.60%", "0 km"],
+    ["Miraj Market", "Turmeric", "₹118.00/kg", "↑ 3.10%", "18 km"],
+
+    // GRAPES
+    ["Miraj Market", "Grapes", "₹60.00/kg", "↑ 3.20%", "18 km"],
+    ["Tasgaon Market", "Grapes", "₹58.00/kg", "↑ 2.90%", "35 km"],
+    ["Sangli Market Yard", "Grapes", "₹61.00/kg", "↑ 3.50%", "0 km"],
+
+    // SUGARCANE
+    ["Sangli Market Yard", "Sugarcane", "₹3.45/kg", "↑ 2.20%", "0 km"],
+    ["Miraj Market", "Sugarcane", "₹3.40/kg", "↑ 1.90%", "18 km"]
+
+],
+
+
+"Satara": [
+
+    // ONION
+    ["Satara Market Yard", "Onion", "₹29.00/kg", "↑ 3.10%", "0 km"],
+    ["Phaltan Market", "Onion", "₹28.00/kg", "↑ 2.70%", "55 km"],
+
+    // SUGARCANE
+    ["Karad Market", "Sugarcane", "₹3.45/kg", "↑ 2.20%", "45 km"],
+    ["Satara Market Yard", "Sugarcane", "₹3.50/kg", "↑ 2.50%", "0 km"],
+
+    // WHEAT
+    ["Satara Market Yard", "Wheat", "₹32.00/kg", "↑ 2.00%", "0 km"],
+    ["Karad Market", "Wheat", "₹31.00/kg", "↑ 1.80%", "45 km"]
+
+],
+
+
+"Solapur": [
+
+    // ONION
+    ["Solapur Market Yard", "Onion", "₹28.00/kg", "↑ 3.30%", "0 km"],
+    ["Barshi Market", "Onion", "₹27.00/kg", "↑ 2.70%", "55 km"],
+
+    // TUR
+    ["Akkalkot Market", "Tur", "₹74.00/kg", "↑ 2.80%", "40 km"],
+    ["Solapur Market Yard", "Tur", "₹73.00/kg", "↑ 2.40%", "0 km"],
+
+    // WHEAT
+    ["Barshi Market", "Wheat", "₹32.00/kg", "↑ 2.10%", "55 km"],
+    ["Solapur Market Yard", "Wheat", "₹31.00/kg", "↑ 1.80%", "0 km"]
+
+],
+
+
+"Thane": [
+
+    // VEGETABLES
+    ["Kalyan Market Yard", "Vegetables", "₹33.00/kg", "↑ 2.90%", "0 km"],
+    ["Ulhasnagar Market", "Vegetables", "₹32.00/kg", "↑ 2.50%", "35 km"],
+
+    // POTATO
+    ["Bhiwandi Market", "Potato", "₹32.00/kg", "↑ 2.60%", "28 km"],
+    ["Kalyan Market Yard", "Potato", "₹33.00/kg", "↑ 2.90%", "0 km"],
+
+    // ONION
+    ["Ulhasnagar Market", "Onion", "₹34.00/kg", "↑ 3.10%", "35 km"],
+    ["Kalyan Market Yard", "Onion", "₹33.00/kg", "↑ 2.70%", "0 km"]
+
+],
+
+
+"Wardha": [
+
+    // SOYBEAN
+    ["Wardha Market Yard", "Soybean", "₹47.00/kg", "↑ 3.10%", "0 km"],
+    ["Arvi Market", "Soybean", "₹46.00/kg", "↑ 2.60%", "38 km"],
+
+    // COTTON
+    ["Hinganghat Market", "Cotton", "₹71.00/kg", "↑ 2.70%", "45 km"],
+    ["Wardha Market Yard", "Cotton", "₹70.00/kg", "↑ 2.40%", "0 km"],
+
+    // WHEAT
+    ["Arvi Market", "Wheat", "₹31.00/kg", "↑ 2.00%", "38 km"],
+    ["Wardha Market Yard", "Wheat", "₹32.00/kg", "↑ 2.20%", "0 km"]
+
+],
+
+
+"Washim": [
+
+    // SOYBEAN
+    ["Washim Market Yard", "Soybean", "₹48.00/kg", "↑ 3.30%", "0 km"],
+    ["Karanja Market", "Soybean", "₹47.00/kg", "↑ 2.40%", "55 km"],
+    ["Mangrulpir Market", "Soybean", "₹49.00/kg", "↑ 2.80%", "40 km"],
+
+    // COTTON
+    ["Mangrulpir Market", "Cotton", "₹70.00/kg", "↑ 2.60%", "40 km"],
+    ["Washim Market Yard", "Cotton", "₹71.00/kg", "↑ 2.90%", "0 km"],
+
+    // TUR
+    ["Karanja Market", "Tur", "₹74.00/kg", "↑ 2.70%", "55 km"],
+    ["Washim Market Yard", "Tur", "₹73.00/kg", "↑ 2.30%", "0 km"]
+
+],
+
+
+"Yavatmal": [
+
+    // COTTON
+    ["Yavatmal Market Yard", "Cotton", "₹72.00/kg", "↑ 3.40%", "0 km"],
+    ["Darwha Market", "Cotton", "₹70.00/kg", "↑ 2.50%", "38 km"],
+    ["Pusad Market", "Cotton", "₹71.00/kg", "↑ 2.80%", "45 km"],
+
+    // SOYBEAN
+    ["Pusad Market", "Soybean", "₹48.00/kg", "↑ 2.70%", "45 km"],
+    ["Yavatmal Market Yard", "Soybean", "₹47.00/kg", "↑ 2.30%", "0 km"],
+
+    // TUR
+    ["Darwha Market", "Tur", "₹74.00/kg", "↑ 2.80%", "38 km"],
+    ["Yavatmal Market Yard", "Tur", "₹73.00/kg", "↑ 2.40%", "0 km"]
+
+]
+
+};
+        // ==========================================
+        // DISTRICT → CROP DATA
+        // ==========================================
+
+        const districtCrops = {};
+
+        for (const district in marketData) {
+
+            districtCrops[district] = [];
+
+            marketData[district].forEach(function(market) {
+
+                const crop = market[1];
+
+                if (!districtCrops[district].includes(crop)) {
+                    districtCrops[district].push(crop);
+                }
+
+            });
+
+}
+       
+
+
+        // ==========================================
+        // LOAD DISTRICTS
+        // ==========================================
+
+        function loadMarketDistricts() {
+
+            const stateSelect =
+                document.getElementById("marketState");
+
+            const districtSelect =
+                document.getElementById("marketDistrict");
+
+
+            if (!stateSelect || !districtSelect) {
+                return;
+            }
+
+
+            const selectedState =
+                stateSelect.value;
+
+
+            // Clear old options
+            districtSelect.innerHTML =
+                '<option value="">Select District</option>';
+
+
+            // If no state selected
+            if (selectedState === "") {
+
+                districtSelect.disabled = true;
+
+                return;
+            }
+
+
+            // Get districts
+            const districts =
+                districtData[selectedState];
+
+
+            if (!districts) {
+
+                districtSelect.disabled = true;
+
+                return;
+            }
+
+
+            // Add districts
+            districts.forEach(function(district) {
+
+                const option =
+                    document.createElement("option");
+
+                option.value = district;
+
+                option.textContent = district;
+
+                districtSelect.appendChild(option);
+
+            });
+
+
+            // Enable dropdown
+            districtSelect.disabled = false;
+            loadDistrictCrops();
+        }
+
+
+        
+        // ==========================================
+        // DISTRICT → CROP DROPDOWN
+        // ==========================================
+        // ==========================================
+        // DISTRICT → CROP DROPDOWN
+        // ==========================================
+
+function loadDistrictCrops() {
+
+    const districtSelect =
+        document.getElementById("marketDistrict");
+
+    const cropSelect =
+        document.getElementById("marketCrop");
+
+    if (!districtSelect || !cropSelect) {
+        return;
+    }
+
+    const district =
+        districtSelect.value;
+
+    // Clear old crops
+    cropSelect.innerHTML =
+        '<option value="">Select Crop</option>';
+
+    // District select nahi hai
+    if (district === "") {
+        cropSelect.disabled = true;
+        return;
+    }
+
+    // Selected district ka market data
+    const markets =
+        marketData[district];
+
+    // Market data nahi mila
+    if (!markets || markets.length === 0) {
+        cropSelect.disabled = true;
+        return;
+    }
+
+    // Unique crops collect karna
+    const crops = [];
+
+    markets.forEach(function(market) {
+
+        const crop = market[1];
+
+        if (!crops.includes(crop)) {
+            crops.push(crop);
+        }
+
+    });
+
+    // Crop dropdown me add karna
+    crops.forEach(function(crop) {
+
+        const option =
+            document.createElement("option");
+
+        option.value = crop;
+        option.textContent = crop;
+
+        cropSelect.appendChild(option);
+
+    });
+
+    // Crop dropdown enable
+    cropSelect.disabled = false;
+}
+    function showDistrictMarkets() {
+
+    const districtSelect =
+        document.getElementById("marketDistrict");
+
+    const tableBody =
+        document.getElementById("marketTableBody");
+
+    const marketTitle =
+        document.getElementById("marketTitle");
+
+    const marketPriceSelect =
+        document.getElementById("marketPrice");
+
+    const averagePrice =
+        document.getElementById("averagePrice");
+
+    const minimumPrice =
+        document.getElementById("minimumPrice");
+
+    const maximumPrice =
+        document.getElementById("maximumPrice");
+
+
+    if (!districtSelect) {
+        return;
+    }
+
+
+    const district =
+        districtSelect.value;
+
+
+    if (district === "") {
+        return;
+    }
+
+
+    // Get markets of selected district
+    const markets =
+        marketData[district];
+
+
+    // ==========================================
+    // NO MARKET DATA
+    // ==========================================
+
+    if (!markets || markets.length === 0) {
+
+        if (tableBody) {
+            tableBody.innerHTML = `
+                <tr>
+                    <td colspan="5">
+                        Market data for ${district}
+                        will be available soon.
+                    </td>
+                </tr>
+            `;
+        }
+
+        if (marketPriceSelect) {
+            marketPriceSelect.innerHTML = `
+                <option value="">
+                    No market available
+                </option>
+            `;
+        }
+
+        return;
+    }
+
+
+    // ==========================================
+    // MARKET TITLE
+    // ==========================================
+
+    if (marketTitle) {
+        marketTitle.textContent =
+            "🏪 Markets in " + district;
+    }
+
+
+    // ==========================================
+    // GET PRICES
+    // ==========================================
+
+    const prices = markets.map(function(market) {
+
+        return extractPrice(market[2]);
+
+    });
+
+
+    // ==========================================
+    // AVERAGE
+    // ==========================================
+
+    const total = prices.reduce(function(sum, price) {
+
+        return sum + price;
+
+    }, 0);
+
+
+    const average =
+        total / prices.length;
+
+
+    // ==========================================
+    // MINIMUM
+    // ==========================================
+
+    const minimum =
+        Math.min(...prices);
+
+
+    // ==========================================
+    // MAXIMUM
+    // ==========================================
+
+    const maximum =
+        Math.max(...prices);
+
+
+    // ==========================================
+    // UPDATE TODAY'S MARKET OVERVIEW
+    // ==========================================
+
+    averagePrice.textContent =
+        "₹" + average.toFixed(2) + " / kg";
+
+
+    minimumPrice.textContent =
+        "₹" + minimum.toFixed(2) + " / kg";
+
+
+    maximumPrice.textContent =
+        "₹" + maximum.toFixed(2) + " / kg";
+
+
+    // ==========================================
+    // UPDATE MARKET TABLE
+    // ==========================================
+
+    if (tableBody) {
+
+        tableBody.innerHTML = "";
+
+        markets.forEach(function(market) {
+
+            const row =
+                document.createElement("tr");
+
+            row.innerHTML = `
+                <td>${market[0]}</td>
+                <td>${market[1]}</td>
+                <td>${market[2]}</td>
+                <td class="positive">${market[3]}</td>
+                <td>${market[4]}</td>
+            `;
+
+            tableBody.appendChild(row);
+
+        });
+
+    }
+
+
+    // ==========================================
+    // UPDATE SELECT MARKET
+    // ==========================================
+
+    if (marketPriceSelect) {
+
+        marketPriceSelect.innerHTML = "";
+
+        markets.forEach(function(market) {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                extractPrice(market[2]);
+
+            option.textContent =
+                market[0] +
+                " (" +
+                market[2] +
+                ")";
+
+            marketPriceSelect.appendChild(option);
+
+        });
+
+    }
+
+}
+
+
+// ==========================================
+// EXTRACT PRICE FROM ₹30.00/kg
+// ==========================================
+
+function extractPrice(priceText) {
+
+    return Number(
+        priceText
+            .replace("₹", "")
+            .replace("/kg", "")
+            .trim()
+    );
+
+}
+
+
+
+
+
+
+        // ==========================================
+        // PROFIT CALCULATOR
+        // ==========================================
+
+        function calculateProfit() {
+
+            const quantity =
+                Number(
+                    document.getElementById("quantity").value
+                );
+
+
+            const marketPrice =
+                Number(
+                    document.getElementById("marketPrice").value
+                );
+
+
+            const sellingPriceElement =
+                document.getElementById("sellingPrice");
+
+
+            const transportCostElement =
+                document.getElementById("transportCost");
+
+
+            const estimatedProfitElement =
+                document.getElementById("estimatedProfit");
+
+
+            if (
+                !quantity ||
+                quantity <= 0 ||
+                !marketPrice
+            ) {
+                return;
+            }
+
+
+            // Selling amount
+            const sellingAmount =
+                quantity * marketPrice;
+
+
+            // Transport cost
+            const transportCost =
+                quantity * 0.25;
+
+
+            // Production/base cost
+            const productionCost =
+                quantity * 30;
+
+
+            // Final profit
+            const profit =
+                sellingAmount -
+                productionCost -
+                transportCost;
+
+
+            // Update selling price
+            sellingPriceElement.textContent =
+                "₹" +
+                marketPrice.toFixed(2) +
+                "/kg";
+
+
+            // Update transport cost
+            transportCostElement.textContent =
+                "₹" +
+                transportCost.toFixed(0);
+
+
+            // Update profit
+            estimatedProfitElement.textContent =
+                "₹" +
+                profit.toFixed(0);
+
+        }
+
+
+        // ==========================================
+        // PAGE LOAD
+        // ==========================================
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                const stateSelect =
+                    document.getElementById("marketState");
+
+                const districtSelect =
+                    document.getElementById("marketDistrict");
+
+                const calculateButton =
+                    document.getElementById("calculateButton");
+
+
+                // State change
+                if (stateSelect) {
+
+                    stateSelect.addEventListener(
+                        "change",
+                        loadMarketDistricts
+                    );
+
+                }
+
+
+                // District change
+                // District change
+                if (districtSelect) {
+
+                    districtSelect.addEventListener(
+                        "change",
+                        function() {
+
+                            loadDistrictCrops();
+
+                            showDistrictMarkets();
+
+                        }
+                    );
+
+                }
+               
+
+
+                // Calculate button
+                if (calculateButton) {
+
+                    calculateButton.addEventListener(
+                        "click",
+                        calculateProfit
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
+
+
