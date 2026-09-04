@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>KisanConnect - Farmer Login</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <div class="auth-logo">
+                🌾
+            </div>
+
+            <h1>KisanConnect</h1>
+
+            <p class="auth-subtitle">
+                Empowering Farmers with Better Markets
+            </p>
+            <!-- Language Selector -->
+
+<div class="language-selector">
+
+    <label for="languageSelect">
+        Language / ভাষা
+    </label>
+
+    <select id="languageSelect" onchange="changeLanguage()">
+
+        <option value="en">
+            English
+        </option>
+
+        <option value="bn">
+            বাংলা
+        </option>
+
+    </select>
+
+</div>
+
+
+            <!-- Login Form -->
+
+            <div id="loginForm">
+
+                <h2>Farmer Login</h2>
+
+                <p>
+                    Login to access your farmer dashboard
+                </p>
+
+                <label for="phone">Phone Number</label>
+
+                <input
+                    type="tel"
+                    id="loginphone"
+                    placeholder="Enter your phone number"
+                    maxlength="10"
+                    pattern="[0-9]{10}"
+                    required
+                >
+
+
+                <label for="loginPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter your password"
+                >
+                <button type="button" onclick="loginFarmer()">
+                 Login
+                </button>
+
+                
+
+
+                <p class="auth-switch">
+
+                    New farmer?
+
+                    <button
+                        onclick="showRegister()"
+                        class="link-btn"
+                    >
+                        Create an account
+                    </button>
+
+                </p>
+
+            </div>
+
+
+            <!-- Register Form -->
+
+            <div id="registerForm"
+                 style="display: none;">
+
+                <h2>Create Farmer Account</h2>
+
+                <p>
+                    Register to start using KisanConnect
+                </p>
+
+
+                <label for="registerName">
+                    Farmer Name
+                </label>
+
+                <input
+                    type="text"
+                    id="registerName"
+                    placeholder="Enter your name"
+                >
+
+
+                <label for="registerphone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="registerPhone"
+                    placeholder="Enter your phone number"
+                >
+
+
+                <label for="registerPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="registerPassword"
+                    placeholder="Create a password"
+                >
+
+
+                <label for="registerLocation">
+                    Location
+                </label>
+
+                <input
+                    type="text"
+                    id="registerLocation"
+                    placeholder="Enter your location"
+                >
+
+
+                <button
+                    class="auth-btn"
+                    onclick="registerFarmer()"
+                >
+                    Register
+                </button>
+
+
+                <p class="auth-switch">
+
+                    Already registered?
+
+                    <button
+                        onclick="showLogin()"
+                        class="link-btn"
+                    >
+                        Login
+                    </button>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
